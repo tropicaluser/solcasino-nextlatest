@@ -1,9 +1,9 @@
-import Chart from "@/components/Chart";
+import Chart from '@/components/Chart';
 
 export default function Page() {
-    return (
-        <div> 
-            <Chart />
-                    </div>
-    )
+  return (
+    <div>
+      <Chart />
+    </div>
+  );
 }
