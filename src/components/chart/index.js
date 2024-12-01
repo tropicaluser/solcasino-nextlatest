@@ -11,7 +11,6 @@ export default function Home() {
 
     return (
         <div className={styles.container}>
-            <h1 className={styles.title}>Crash Game</h1>
             <CrashChart data={chartData} crashPoint={crashPoint} isCrashed={isCrashed} />
             <div className={styles.controls}>
                 {isCrashed ? (
