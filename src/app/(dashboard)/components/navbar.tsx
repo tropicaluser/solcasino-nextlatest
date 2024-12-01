@@ -167,16 +167,7 @@ export default function Nav() {
          
         </div>
         <div className="flex flex-col gap-0.4 items-end order-2 lg:order-3">
-            <button
-              className="text-sm text-slate-50 hover:bg-transparent hover:text-slate-50"
-              type="button"
-              aria-haspopup="dialog"
-              aria-expanded="false"
-              aria-controls="radix-:r6:"
-              data-state="closed"
-            >
-              <DialogCloseButton />
-            </button>
+        <DialogCloseButton />
           </div>
       </nav>
     );

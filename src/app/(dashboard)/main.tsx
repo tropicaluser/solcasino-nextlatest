@@ -1,4 +1,8 @@
+"use client";
+
 import Chart from "@/components/Chart";
+import { useGame } from "@/context/game-context";
+import styles from '@/components/chart/Home.module.css';
 
 export default function Main() {
   return (
@@ -144,16 +148,26 @@ function SidebarMiddle() {
 }
 
 function SidebarTrade() {
+  const { multiplier, isCrashed, crashPoint, chartData, resetGame } = useGame();
   return (
 
     <>
     <div className="flex flex-col gap-2">
       
-      <button className="inline-flex items-center justify-center whitespace-nowrap text-sm font-medium ring-offset-white transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-slate-950 focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 dark:ring-offset-slate-950 dark:focus-visible:ring-slate-300 dark:bg-slate-50 dark:text-slate-900 dark:hover:bg-slate-50/90 h-10 px-4 bg-green-400 text-primary w-full py-3 rounded-md hover:bg-green-200">place trade</button>
+      {isCrashed ? (
+                    <button className="inline-flex items-center justify-center whitespace-nowrap text-sm font-medium ring-offset-white transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-slate-950 focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 dark:ring-offset-slate-950 dark:focus-visible:ring-slate-300 dark:bg-slate-50 dark:text-slate-900 dark:hover:bg-slate-50/90 h-10 px-4 bg-green-400 text-primary w-full py-3 rounded-md hover:bg-green-200" onClick={resetGame} >
+                        play
+                    </button>
+                ) : (
+                    <p className={styles.text}>Multiplier: {multiplier.toFixed(1)}x</p>
+                )}
+
+      
       <div className="flex items-center space-x-2">
+
+  
         
         <button type="button" role="checkbox" aria-checked="false" data-state="unchecked" value="on" className="peer h-4 w-4 shrink-0 rounded-sm border ring-offset-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 data-[state=checked]:border-gray-500 data-[state=checked]:bg-transparent border-gray-500 text-gray-500 focus:ring-gray-500 focus:ring-offset-gray-800" id="add-comment"></button>
-        
         <label htmlFor="add-comment" className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70 text-gray-400">add comment</label>
       </div></div>
     </>
